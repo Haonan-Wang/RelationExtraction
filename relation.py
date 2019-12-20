@@ -64,12 +64,10 @@ class RelationExtractor:
             subj, pred, obj = None, None, None
             if edge.dep == 'nsubj':
                 subj, pred = edge.target, edge.source
-            elif edge.dep == 'acl':
+            elif edge.dep in ['acl', 'acl:relcl']:
                 subj, pred = edge.source, edge.target
             elif edge.dep == 'dobj':
                 pred, obj = edge.source, edge.target
-            elif edge.dep == 'acl:relcl':
-                pred, obj = edge.target, edge.source
             else:
                 continue
 
