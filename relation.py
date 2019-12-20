@@ -222,22 +222,23 @@ class RelationExtractor:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
-        _, corenlp_home, text = sys.argv
+    if len(sys.argv) >= 3:
+        corenlp_home, text = sys.argv[1:3]
 
         relationExtractor = RelationExtractor(corenlp_home)
         sentences = relationExtractor.extract(text)
 
-        print('\nText:', text)
+        print('\ntext:', text)
         for num, sentence in enumerate(sentences):
             tokens = sentence['tokens']
-            print('\nSentence {}: {}'.format(num + 1, ' '.join(tokens)))
+            print('\nsentence', num + 1)
+            print('-tokens:', tokens)
 
-            print('Relations:')
+            print('-relations:')
             for relation in sentence['relations']:
                 subj = tokens[relation[0]]
                 pred = '-'.join([tokens[idx] for idx in relation[1]])
                 obj = tokens[relation[2]]
-                print(' '.join([subj, pred, obj]))
+                print(relation, '->', (subj, pred, obj))
     else:
         print('Usage: python relation.py "corenlp_home" "text"')
