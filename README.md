@@ -1,8 +1,17 @@
 # RelationExtraction
 
+## Dependency
+
+- Python 3.6+
+- pip install stanfordnlp
+- Java 1.8+
+- Stanford CoreNLP
+  
+  Click [here](http://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip) to download "stanford-corenlp-full-*.zip", unzip it to any location.
+
 ## Usage
 
-python relation.py "corenlp_home" "text"
+python relation.py "/path/to/stanford-corenlp-full-*" "text to extract relations"
 
 ## Example
 
